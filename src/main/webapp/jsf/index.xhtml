@@ -1,0 +1,57 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/resources/templates/template.xhtml">
+    <ui:define name="title">Geo Localidade</ui:define>
+    <ui:define name="body">
+        <div class="ui container ">
+            <h1 class="ui header">Países</h1>
+            <h:dataTable value="#{homeController.paises}" var="pais" styleClass="ui inverted blue table">
+                <h:column>
+                    <f:facet name="header">Código ISO</f:facet>
+                    <h:outputText value="#{pais.codigoIso}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">País</f:facet>
+                    <h:outputText value="#{pais.nome}"/>
+                </h:column>
+            </h:dataTable>
+            <div class="ui divider"></div>
+            <h1 class="ui header">UFs</h1>
+            <h:dataTable value="#{homeController.ufs}" var="uf" styleClass="ui inverted blue table">
+                <h:column>
+                    <f:facet name="header">Sigla</f:facet>
+                    <h:outputText value="#{uf.sigla}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">UF</f:facet>
+                    <h:outputText value="#{uf.nome}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Geocodigo</f:facet>
+                    <h:outputText value="#{uf.geocodigo}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">País</f:facet>
+                    <h:outputText value="#{uf.pais.nome}"/>
+                </h:column>
+            </h:dataTable>
+            <div class="ui divider"></div>
+            <h1 class="ui header">Cidades</h1>
+            <h:dataTable value="#{homeController.cidades}" var="cidade" styleClass="ui inverted blue table">
+                <h:column>
+                    <f:facet name="header">Sigla</f:facet>
+                    <h:outputText value="#{cidade.nome}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Geocodigo</f:facet>
+                    <h:outputText value="#{cidade.geocodigo}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">UF</f:facet>
+                    <h:outputText value="#{cidade.uf.nome}"/>
+                </h:column>
+            </h:dataTable>
+        </div>
+    </ui:define>
+</ui:composition>

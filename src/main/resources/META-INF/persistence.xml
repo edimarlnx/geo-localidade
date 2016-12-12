@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+    <persistence-unit name="GeoLocalidadePU" transaction-type="JTA">
+        <jta-data-source>java:jboss/datasources/GeoLocalidadeDs</jta-data-source>
+        <!--<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
+        <!--<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>-->
+        <properties>
+            <!--  propriedades do hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="none"/>
+            <!--<property name="hibernate.cache.use_query_cache" value="true"/>-->
+            <!--<property name="hibernate.cache.auto_evict_collection_cache" value="true"/>-->
+            <!--<property name="hibernate.max_fetch_depth" value="0"/>-->
+            <!--<property name="hibernate.cache.provider_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>-->
+            <!--<property name="net.sf.ehcache.configurationResourceName" value="ehcache.xml" />-->
+            <!--<property name="hibernate.cache.use_second_level_cache" value="true"/>-->
+            <property name="hibernate.generate_statistics" value="true" />
+        </properties>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    </persistence-unit>
+</persistence>
