@@ -8,9 +8,10 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "cidade_ibge")
-@NamedQueries(
-        @NamedQuery(name = "Cidade.findAll", query = "SELECT c FROM Cidade c order by c.nome asc")
-)
+@NamedQueries({
+        @NamedQuery(name = "Cidade.findAll", query = "SELECT c FROM Cidade c order by c.nome asc"),
+        @NamedQuery(name = "Cidade.findByUf", query = "SELECT c FROM Cidade c join c.uf u WHERE u.sigla = :uf order by c.nome asc")
+})
 public class Cidade implements BaseModel<Integer> {
 
     @Id

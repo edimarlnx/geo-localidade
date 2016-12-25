@@ -16,4 +16,10 @@ public class CidadeService extends GenericService<Cidade> {
         TypedQuery<Cidade> query = getEntityManager().createNamedQuery("Cidade.findAll", Cidade.class);
         return query.getResultList();
     }
+
+    public List<Cidade> findByUf(String uf) {
+        TypedQuery<Cidade> query = getEntityManager().createNamedQuery("Cidade.findByUf", Cidade.class)
+                .setParameter("uf", uf);
+        return query.getResultList();
+    }
 }

@@ -5,18 +5,6 @@
     <ui:define name="title">Geo Localidade</ui:define>
     <ui:define name="body">
         <div class="ui container ">
-            <h1 class="ui header">Países</h1>
-            <h:dataTable value="#{homeController.paises}" var="pais" styleClass="ui table">
-                <h:column>
-                    <f:facet name="header">Código ISO</f:facet>
-                    <h:outputText value="#{pais.codigoIso}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">País</f:facet>
-                    <h:outputText value="#{pais.nome}"/>
-                </h:column>
-            </h:dataTable>
-            <div class="ui divider"></div>
             <h1 class="ui header">UFs</h1>
             <h:dataTable value="#{homeController.ufs}" var="uf" styleClass="ui table">
                 <h:column>
@@ -40,22 +28,6 @@
                     <h:link outcome="pretty:uf-cidades" styleClass="item" value="Cidades">
                         <f:param name="ufSelecionado" value="#{uf.sigla}"/>
                     </h:link>
-                </h:column>
-            </h:dataTable>
-            <div class="ui divider"></div>
-            <h1 class="ui header">Cidades</h1>
-            <h:dataTable value="#{homeController.cidades}" var="cidade" styleClass="ui table">
-                <h:column>
-                    <f:facet name="header">Sigla</f:facet>
-                    <h:outputText value="#{cidade.nome}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Geocodigo</f:facet>
-                    <h:outputText value="#{cidade.geocodigo}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">UF</f:facet>
-                    <h:outputText value="#{cidade.uf.nome}"/>
                 </h:column>
             </h:dataTable>
         </div>
