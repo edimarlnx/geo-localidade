@@ -7,19 +7,19 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "cidade")
+@Table(name = "cidade_ibge")
 @NamedQueries(
         @NamedQuery(name = "Cidade.findAll", query = "SELECT c FROM Cidade c order by c.nome asc")
 )
 public class Cidade implements BaseModel<Integer> {
 
     @Id
-    @Column(name = "cidade_id")
+    @Column(name = "cidade_ibge_id")
     @Getter @Setter
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "unidade_federacao_id")
+    @JoinColumn(name = "uf_ibge_id")
     @Getter @Setter
     private Uf uf;
 
@@ -28,8 +28,8 @@ public class Cidade implements BaseModel<Integer> {
     @Getter @Setter
     private String nome;
 
-    @Column(name = "nome_abrev")
-    @Size(max = 50)
+    @Column(name = "nome_normalizado")
+    @Size(max = 100)
     @Getter @Setter
     private String nomeAbrev;
 

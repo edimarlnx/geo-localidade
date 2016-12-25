@@ -7,19 +7,19 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "unidade_federacao")
+@Table(name = "uf_ibge")
 @NamedQueries(
         @NamedQuery(name = "Uf.findAll", query = "SELECT u FROM Uf u order by u.nome asc")
 )
 public class Uf implements BaseModel<Integer> {
 
     @Id
-    @Column(name = "unidade_federacao_id")
+    @Column(name = "uf_ibge_id")
     @Getter @Setter
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "pais_id")
+    @JoinColumn(name = "pais_ibge_id")
     @Getter @Setter
     private Pais pais;
 

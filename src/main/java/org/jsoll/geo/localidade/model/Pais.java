@@ -7,14 +7,14 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "pais")
+@Table(name = "pais_ibge")
 @NamedQueries(
         @NamedQuery(name = "Pais.findAll", query = "SELECT p FROM Pais p order by p.nome asc")
 )
 public class Pais implements BaseModel<Integer> {
 
     @Id
-    @Column(name = "pais_id")
+    @Column(name = "pais_ibge_id")
     @Getter @Setter
     private Integer id;
 
