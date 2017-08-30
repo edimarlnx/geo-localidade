@@ -6,6 +6,13 @@
     <ui:define name="body">
         <div class="ui container ">
             <h1 class="ui header">Cidades</h1>
+            <div class="ui">
+                <ui:repeat value="#{homeController.ufs}" var="uf">
+                    <h:link outcome="pretty:uf-cidades" styleClass="ui label" value="#{uf.sigla} ">
+                        <f:param name="ufSelecionado" value="#{uf.sigla}"/>
+                    </h:link>
+                </ui:repeat>
+            </div>
             <h:dataTable value="#{homeController.cidades}" var="cidade" styleClass="ui table">
                 <h:column>
                     <f:facet name="header">Sigla</f:facet>

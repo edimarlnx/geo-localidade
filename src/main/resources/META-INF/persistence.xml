@@ -9,15 +9,17 @@
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
-            <property name="hibernate.hbm2ddl.auto" value="none"/>
-            <!--<property name="hibernate.cache.use_query_cache" value="true"/>-->
-            <!--<property name="hibernate.cache.auto_evict_collection_cache" value="true"/>-->
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+            <property name="hibernate.cache.use_query_cache" value="true"/>
+            <property name="hibernate.cache.use_second_level_cache" value="true"/>
+            <property name="hibernate.cache.use_structured_entries" value="true"/>
+            <property name="hibernate.cache.region_prefix" value=""/>
+            <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>
+            <!--<property name="net.sf.ehcache.configurationResourceName" value="/ehcache.xml" />-->
+            <property name="hibernate.cache.auto_evict_collection_cache" value="true"/>
             <!--<property name="hibernate.max_fetch_depth" value="0"/>-->
-            <!--<property name="hibernate.cache.provider_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>-->
-            <!--<property name="net.sf.ehcache.configurationResourceName" value="ehcache.xml" />-->
-            <!--<property name="hibernate.cache.use_second_level_cache" value="true"/>-->
             <property name="hibernate.generate_statistics" value="true" />
         </properties>
-        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <!--<exclude-unlisted-classes>false</exclude-unlisted-classes>-->
     </persistence-unit>
 </persistence>

@@ -2,15 +2,26 @@ package org.jsoll.geo.localidade.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.Cache;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "uf_ibge")
 @NamedQueries(
-        @NamedQuery(name = "Uf.findAll", query = "SELECT u FROM Uf u order by u.nome asc")
+        @NamedQuery(name = "Uf.findAll", query = "SELECT u FROM Uf u order by u.nome asc", hints = {
+            @QueryHint(name = QueryHints.CACHEABLE, value = "true"),
+            @QueryHint(name = QueryHints.CACHE_REGION, value = "Uf.findAll")
+        })
 )
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Uf implements BaseModel<Integer> {
 
     @Id
