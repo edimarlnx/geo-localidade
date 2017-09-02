@@ -16,4 +16,9 @@ public class UfService extends GenericService<Uf> {
         TypedQuery<Uf> query = getEntityManager().createNamedQuery("Uf.findAll", Uf.class);
         return query.getResultList();
     }
+
+    public Uf findById(Integer id) {
+        return getEntityManager().find(Uf.class, id);
+    }
+
 }
